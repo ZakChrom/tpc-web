@@ -24,7 +24,7 @@ jobs:
           ls -la
       - run: pwd
       - run: ls
-      - run: flutter pub get
+      - run: cd thepuzzlecell;flutter pub get
       - run: flutter build web
       - uses: actions/upload-artifact@v3
         with:
