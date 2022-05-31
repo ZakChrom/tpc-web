@@ -1,0 +1,36 @@
+name: build-web
+
+on:
+  schedule:
+    - cron: '15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: clone
+        uses: actions/checkout@v2
+        with:
+          repository: IonutParau/thepuzzlecell
+      - run: rm -rf .git/modules/thepuzzlecell
+      - run: git config --remove-section submodule.thepuzzlecell
+      #- run: git commit -m e
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+      - run: flutter pub get
+      - run: flutter build web
+      - uses: actions/upload-artifact@v3
+        with:
+          name: thepuzzlecell-web
+          path: build/windows/runner/Release
+      - name: upload
+        uses: EndBug/add-and-commit@v8
+        with:
+          message: upload
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+          add: '.'
