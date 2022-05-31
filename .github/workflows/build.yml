@@ -13,8 +13,8 @@ jobs:
       - name: clone
         uses: actions/checkout@v2
         with:
-          repository: IonutParau/thepuzzlecell
-          path: thepuzzlecell
+          owner: IonutParau
+          repository: thepuzzlecell
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
