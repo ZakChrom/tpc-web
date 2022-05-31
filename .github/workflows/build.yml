@@ -25,11 +25,11 @@ jobs:
       - run: pwd
       - run: ls
       - run: cd thepuzzlecell;flutter pub get
-      - run: flutter build web
+      - run: cd thepuzzlecell;flutter build web
       - uses: actions/upload-artifact@v3
         with:
           name: thepuzzlecell-web
-          path: build/windows/runner/Release
+          path: thepuzzlecell/build/windows/runner/Release
       - name: upload
         uses: EndBug/add-and-commit@v8
         with:
