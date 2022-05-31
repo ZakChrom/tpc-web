@@ -14,9 +14,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: IonutParau/thepuzzlecell
-      - run: rm -rf .git/modules/thepuzzlecell
-      - run: git config --remove-section submodule.thepuzzlecell
-      #- run: git commit -m e
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
