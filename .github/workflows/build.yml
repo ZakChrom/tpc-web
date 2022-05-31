@@ -22,11 +22,11 @@ jobs:
           echo "CLONED REPO"
           cd thepuzzlecell
           ls -la
-      - run: pwd
-      - run: ls
+      - run: cd thepuzzlecell;pwd
+      - run: cd thepuzzlecell;ls
       - run: cd thepuzzlecell;flutter pub get
       - run: cd thepuzzlecell;flutter build web
       - uses: actions/upload-artifact@v3
         with:
-          name: thepuzzlecell-web
+          name: web-build
           path: thepuzzlecell/build/windows/runner/Release
