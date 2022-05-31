@@ -15,12 +15,17 @@ jobs:
         with:
           owner: IonutParau
           repository: thepuzzlecell
+      - run: |
+          echo "ROOT"
+          ls -la
+          echo "CLONED REPO"
+          cd poc-github-actions
+          ls -la
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
           channel: "stable"
       - run: ls
-      - run: cd thepuzzlecell
       - run: flutter pub get
       - run: flutter build web
       - uses: actions/upload-artifact@v3
