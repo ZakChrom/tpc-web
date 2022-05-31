@@ -25,7 +25,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: "stable"
-      - run: ls
+      - run: cd thepuzzlecell;ls
       - run: flutter pub get
       - run: flutter build web
       - uses: actions/upload-artifact@v3
