@@ -10,17 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: clone
-        uses: GuillaumeFalourd/clone-github-repo-action@v2
-        with:
-          owner: IonutParau
-          repository: thepuzzlecell
-      - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
           channel: "stable"
+      - uses: GuillaumeFalourd/clone-github-repo-action@v2
+        with:
+          owner: IonutParau
+          repository: thepuzzlecell
       - run: |
-          echo "ROOT"
           ls -la
           echo "CLONED REPO"
           cd thepuzzlecell
